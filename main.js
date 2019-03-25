@@ -144,3 +144,39 @@ console.log(AddNums(5,10));
 // const addNums2 = (num1,num2) => {return num1+num2};
 const addNums2 = (num1,num2) => num1+num2;
 console.log(addNums2(10,20));
+
+//OOp
+function Person(fname,lname,dob){
+    this.fname = fname;
+    this.lname = lname;
+    // this.dob = dob;
+    this.dob = (dob == undefined)? new Date():Date(dob);
+
+    this.getBirthYear = function() {return this.dob.getfullyear();}
+    this.getfullname = function(){
+        return `${this.fanme} ${this.lname}`
+    }
+}
+
+const p1 = new Person('John','Doe','123');
+console.log(p1);
+console.log(p1.getfullname() + ' ' + p1.getBirthYear);
+
+class PersonC {
+    constructor(firstname,lastname,dob){
+        this.fnmae = firstname;
+        this.lname = lastname;
+        this.dob = (dob === undefined)? new Date():new Date(dob);
+    }
+    getBirthYear = function() {
+        return this.dob.getfullyear();}
+    getfullname = function(){
+        return `${this.fanme} ${this.lname}`
+    }
+}
+const p2 = new PersonC('Jone','dgh','fbhd');
+console.log(p2);
+
+//DOM - Document Object Model
+console.log(window.alert());
+console.log(window.document);
