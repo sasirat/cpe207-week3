@@ -178,5 +178,37 @@ const p2 = new PersonC('Jone','dgh','fbhd');
 console.log(p2);
 
 //DOM - Document Object Model
-console.log(window.alert());
+// console.log(window.alert());
 console.log(window.document);
+const form = document.getElementById('my-form');
+console.log(form);
+
+const container = document.querySelector('h1');
+console.log(container);
+
+container.innerHTML = 'pop'
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#user');
+myForm.addEventListener('submit',onSubmit);
+function onSubmit(e){
+    e.preventDefault();
+    // console.log(nameInput.value + ' ' + emailInput.value);
+    if(nameInput.value === '' || emailInput === ''){
+        //alert('Please enter all filed');
+        msg.classList.add('error');
+        msg.innerHTML = 'Please enter all fields';
+    }else{
+    const li = document.createElement('li');
+    const text = document.createTextNode(`${nameInput.value}:${emailInput.value}`);
+    li.appendChild(text);
+    console.log(li);
+    userList.appendChild(li);
+
+    nameInput.value = '';
+    emailInput.value = '';
+    }
+}
